@@ -1,0 +1,41 @@
+1 - yarn init -y
+2 - yarn add typescript ts-node nodemon -D
+3 - npx typescript --init   
+4 - yarn add express   
+5 - yarn add @types/express -D
+6 - yarn add typeorm reflect-metadata --save 
+ 7 - yarn add pg --save
+
+8 - tsconfig.json = > "emitDecoratorMetadata": true,"experimentalDecorators": true, "strictPropertyInitialization": false,
+9 - criar ormconfig.json na raiz
+    colcar o seguinte codigo :
+                        {
+                            "type": "postgres",
+                            "host": "localhost",
+                            "port": 5432,
+                            "username": "marcospaulo",
+                            "password": "",
+                            "database": "tsauth",
+                            "entities": [
+                            "src/app/models/entity/*.ts"
+                            ],
+                            "migrations": [
+                            "src/database/migrations/*.ts"
+                            ],
+                            
+                                "cli": {
+                                    "migrationsDir": "src/database/migrations"
+                                }
+                            
+                            }
+10 - package.json: scripts = "typeorm": "npx ts-node --files ./node_modules/typeorm/cli.js" 
+11 - criar arquivo connect.ts dentro de da pasta database => importar no index.ts o connect
+12 - yarn typeorm migration:create -n CreateUsersTable
+13 - yarn typeorm migration:run
+14 - criar os models
+15 - criar controller
+16 - yarn add bcryptjs 
+17 - yarn add  @types/bcryptjs -D
+18 - yarn add jsonwebtoken
+19 - yarn add @types/jsonwebtoken -D
+20 - criar middlewares
